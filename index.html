@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>device-capabilities-sample</title>
+
+	<link href="static/style.css" rel="stylesheet" type="text/css"/>
+	<link href="//cdn.muicss.com/mui-0.2.9/css/mui.min.css" rel="stylesheet" type="text/css" />
+	<script src="//cdn.muicss.com/mui-0.2.9/js/mui.min.js"></script>
+
+	<script src="dist/device-capabilities.js"></script>
+
+	<script>
+		function init() {
+			document.getElementById("ua").innerHTML = navigator.userAgent;
+			document.getElementById("ua").innerHTML += "<br/>" + Waud.getFormatSupportString();
+			document.getElementById("ua").innerHTML += "<br/>Web Audio API: " + Waud.isWebAudioSupported;
+			document.getElementById("ua").innerHTML += "<br/>HTML5 Audio: " + Waud.isHTML5AudioSupported;
+		}
+
+	</script>
+
+</head>
+
+<body onload="init()">
+<header class="mui-appbar mui--z2">
+	<div class="mui-container">
+		<table width="100%">
+			<tr class="mui--appbar-height">
+				<td class="mui--text-title"><!--<img src="assets/logo.png" width="180" height="48"/>--></td>
+				<td align="right">
+					<a href="https://github.com/adireddy/waud" target="_blank">
+						<button class="mui-btn mui-btn--small mui-btn--raised">GitHub</button>
+					</a>
+					<a href="https://www.npmjs.com/package/waud.js" target="_blank">
+						<button class="mui-btn mui-btn--small mui-btn--raised">NPM</button>
+					</a>
+					<a href="http://lib.haxe.org/p/waud/" target="_blank">
+						<button class="mui-btn mui-btn--small mui-btn--raised">Haxelib</button>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</header>
+<div id="content-wrapper" class="mui--text-center">
+	<div class="mui--appbar-height"></div>
+	<br />
+	<br />
+	<div id="ua" class="mui--text-caption"></div>
+	<br />
+	<br />
+	<div id="ua" class="mui--text-title">MP3</div>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="playGlassSound('mp3');">Glass</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--danger" onclick="playBellSound('mp3');">Bell</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" onclick="playCanSound('mp3');">Can</button>
+	<br />
+	<div id="ua" class="mui--text-title">AAC</div>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="playGlassSound('aac');">Glass</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--danger" onclick="playBellSound('aac');">Bell</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" onclick="playCanSound('aac');">Can</button>
+	<br />
+	<div id="ua" class="mui--text-title">OGG</div>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="playGlassSound('ogg');">Glass</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--danger" onclick="playBellSound('ogg');">Bell</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" onclick="playCanSound('ogg');">Can</button>
+	<br />
+	<div id="ua" class="mui--text-title">SPRITE</div>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="playGlassSound('sprite');">Glass</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--danger" onclick="playBellSound('sprite');">Bell</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" onclick="playCanSound('sprite');">Can</button>
+	<br />
+	<br />
+	<div id="ua" class="mui--text-title">CONTROLS</div>
+	<button class="mui-btn mui-btn--small mui-btn--raised" onclick="Waud.mute(true);">Mute</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised" onclick="Waud.mute(false);">Unmute</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised" onclick="_bgSnd.setVolume(0);">BG Vol 0</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised" onclick="_bgSnd.setVolume(1);">BG Vol 1</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised" onclick="Waud.stop();">Stop</button>
+</div>
+<footer>
+	<div class="mui-container mui--text-center">
+		This content is released under the <a href="http://opensource.org/licenses/MIT">MIT</a> License.
+	</div>
+</footer>
+
+</body>
+</html>

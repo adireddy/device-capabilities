@@ -1,0 +1,22 @@
+-cmd haxelib newrepo
+
+--next
+
+-cp src
+Motion
+Vibration
+-dce std
+-js dist/device-capabilities.js
+-debug
+-D source-map-content
+
+--next
+
+-cp src
+Motion
+Vibration
+-lib closure
+-dce std
+-js dist/device-capabilities.min.js
+-D closure_overwrite
+--no-traces
