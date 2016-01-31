@@ -5,6 +5,7 @@
 -cp src
 Motion
 Vibration
+BatterySupport
 -dce std
 -js dist/device-capabilities.js
 -debug
@@ -15,6 +16,7 @@ Vibration
 -cp src
 Motion
 Vibration
+BatterySupport
 -lib closure
 -dce std
 -js dist/device-capabilities.min.js
