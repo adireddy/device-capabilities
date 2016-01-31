@@ -1,29 +1,26 @@
 {
-	"name": "waud",
+	"name": "device-capabilities",
 	"license": "MIT",
 	"classPath": "src",
 	"tags": [
-		"web audio",
-		"web audio api",
-		"haxe",
-		"javascript",
-		"audio",
-		"web",
-		"sounds",
-		"audiocontext",
-		"library",
-		"waud.js",
-		"waud",
-		"audiosprite",
-		"sprite",
-		"audio sprite"
+	  "device capabilities",
+	  "devicemotion",
+	  "vibration",
+	  "vibrate",
+	  "orientation",
+	  "device",
+	  "light",
+	  "sensor",
+	  "motion",
+	  "battery",
+	  "location"
 	],
-	"description": "Web Audio Library",
+	"description": "Device Capabilities Library",
 	"contributors": [
 		"adireddy"
 	],
-	"releasenote": "minor bug fixes",
-	"version": "0.4.3",
-	"url": "https://github.com/adireddy/waud",
+	"releasenote": "initial release",
+	"version": "0.0.2",
+	"url": "https://github.com/adireddy/device-capabilities",
 	"dependencies": {}
 }

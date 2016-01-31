@@ -1,6 +1,6 @@
 {
   "name": "device-capabilities.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Device Capabilities Library",
   "main": "./dist/device-capabilities.js",
   "scripts": {
