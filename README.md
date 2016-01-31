@@ -1,6 +1,8 @@
 # ![device-capabilities logo](https://raw.githubusercontent.com/adireddy/device-capabilities/master/logo.png)
 Library to detect and use capabilities like Battery, DeviceMotion, Vibration, etc.
 
+![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)
+
 ### Installation
 
 `npm install device-capabilities.js`
