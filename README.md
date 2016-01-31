@@ -5,6 +5,8 @@ Library to detect and use capabilities like Battery, DeviceMotion, Vibration, et
 
 `npm install device-capabilities.js`
 
+### [API Documentation](http://adireddy.github.io/docs/device-capabilities/)
+
 ### Usage
 
 ```js
