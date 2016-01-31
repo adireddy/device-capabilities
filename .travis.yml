@@ -1,0 +1,11 @@
+sudo: false
+language: haxe
+
+git:
+    depth: 1
+
+haxe:
+  - "3.2.0"
+
+hxml:
+  - build.hxml

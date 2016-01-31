@@ -9,30 +9,12 @@ module.exports = function (grunt) {
             }
         },
 
-        uglify: {
-            options: {
-                compress: {
-                    drop_console: true
-                },
-                banner: "/*!" +
-                        "\n * <%= pkg.name %> - v<%= pkg.version %>" +
-                        "\n * Compiled on <%= grunt.template.today('dd-mm-yyyy hh:mm:ss') %>" +
-                        "\n * <%= pkg.name %> is licensed under the MIT License." +
-                        "\n * Copyright (c) 2015-2016 <%= pkg.author.name %>\n*/\n"
-            },
-            target: {
-                files: {
-                    "dist/waud.min.js": ["dist/waud.min.js"]
-                }
-            }
-        },
-
         shell: {
             npm: {
                 command: "mkdir npm-publish || true && cp -r src dist package.json LICENSE README.md ./npm-publish/ && npm publish ./npm-publish/ && rm -r npm-publish"
             },
             sample: {
-                command: "cp ./dist/waud.min.js sample/ && cp -r ./sample/ ../adireddy.github.io/demos/waud/"
+                command: "cp -r dist index.html logo.png ../adireddy.github.io/demos/device-capabilities/"
             }
         },
 
@@ -52,7 +34,7 @@ module.exports = function (grunt) {
                     selleck: "true",
                     extension: ".hx",
                     paths: "./src",
-                    outdir: "../adireddy.github.io/docs/waud/",
+                    outdir: "../adireddy.github.io/docs/device-capabilities/",
                     themedir: "../adireddy.github.io/docs/yui/themes/yuidoc-theme-blue",
                     logo: "./sample/assets/logo.png"
             }
