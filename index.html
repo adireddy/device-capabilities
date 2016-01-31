@@ -11,7 +11,7 @@
 	<link href="//cdn.muicss.com/mui-0.2.9/css/mui.min.css" rel="stylesheet" type="text/css" />
 	<script src="//cdn.muicss.com/mui-0.2.9/js/mui.min.js"></script>
 
-	<script src="dist/device-capabilities.js"></script>
+	<script src="dist/device-capabilities.min.js"></script>
 
 	<script>
 		var batterySupport = new BatterySupport(onReady);
@@ -24,15 +24,20 @@
 		}
 
 		function onReady() {
-			document.getElementById("ua").innerHTML += "<br/> Battery Support: " + batterySupport.isSupported;
+			document.getElementById("ua").innerHTML += "<br/>Battery Support: " + batterySupport.isSupported;
+			document.getElementById("batteryInfo").innerHTML += "Charging: " + batterySupport.battery.charging;
+			document.getElementById("batteryInfo").innerHTML += "<br/>Charging Time: " + batterySupport.battery.chargingTime;
+			document.getElementById("batteryInfo").innerHTML += "<br/>Level: " + batterySupport.battery.level;
+			document.getElementById("batteryInfo").innerHTML += "<br/>Discharging Time: " + batterySupport.battery.dischargingTime;
 		}
 
 		function shake(threshold) {
 			motion.shake(onShake, threshold);
+			document.getElementById("shakeStatus").innerText = "SHAKE NOW";
 		}
 
 		function onShake() {
-			document.getElementById("shakeStatus").innerText = "SHAKE DETECTED" + Math.round(Math.random());
+			document.getElementById("shakeStatus").innerText = "SHAKE DETECTED " + Math.round(Math.random() * 100);
 		}
 
 	</script>
@@ -45,15 +50,7 @@
 	<div class="mui-container">
 		<table width="100%">
 			<tr class="mui--appbar-height">
-				<td class="mui--text-title"><!--<img src="assets/logo.png" width="180" height="48"/>--></td>
-				<td align="right">
-					<a href="https://github.com/adireddy/device-capabilities" target="_blank">
-						<button class="mui-btn mui-btn--small mui-btn--raised">GitHub</button>
-					</a>
-					<a href="https://www.npmjs.com/package/device-capabilities.js" target="_blank">
-						<button class="mui-btn mui-btn--small mui-btn--raised">NPM</button>
-					</a>
-				</td>
+				<td class="mui--text-title"><a href="https://github.com/adireddy/device-capabilities"><img src="logo.png" width="292" height="36" /></a></td>
 			</tr>
 		</table>
 	</div>
@@ -67,19 +64,21 @@
 	<div id="ua" class="mui--text-caption"></div>
 	<br />
 	<br />
-	<div id="ua" class="mui--text-title">Vibration</div>
+	<div id="vibration" class="mui--text-title">Vibration</div>
 	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="vibration.start(10000);">Vibrate 10 Secs</button>
-	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--danger" onclick="vibration.startPattern([200,100,300,200,50,50,50,50,1000]);">Pattern Vibrate</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--danger" onclick="vibration.startPattern([200,100,300,200,50,50,50,50,1000]);">Pattern</button>
 	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" onclick="vibration.stop();">Stop</button>
 	<br />
 	<br />
-	<div id="ua" class="mui--text-title">Motion</div>
-	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="shake(5);">Shake 5 Threshold</button>
-	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="shake(10);">Shake 10 Threshold</button>
-	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--danger" onclick="shake(15);">Shake 15 Threshold</button>
-	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" id="shakeStatus">WAITING...</button>
+	<div id="motion" class="mui--text-title">Motion (Threshold)</div>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="shake(5);">Shake (5)</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="shake(10);">Shake (10)</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="shake(15);">Shake (15)</button>
+	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" id="shakeStatus">WAITING...   </button>
 	<br />
 	<br />
+	<div id="battery" class="mui--text-title">Battery Info</div>
+	<div id="batteryInfo" class="mui--text-caption"></div>
 	<br />
 	<br />
 	<br />
