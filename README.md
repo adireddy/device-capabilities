@@ -1,2 +1,2 @@
-# device-capabilities
-Library to detect and use capabilities like Geolocation, DeviceMotion, Vibration, etc.
+# ![device-capabilitie logo](https://raw.githubusercontent.com/adireddy/device-capabilitie/master/logo.png)
+Library to detect and use capabilities like Battery, DeviceMotion, Vibration, Geolocation, etc.
