@@ -19,7 +19,7 @@ module.exports = function (grunt) {
         },
 
         zip: {
-            "waud.zip": ["src/*", "haxelib.json", "README.md", "LICENSE"]
+            "dc.zip": ["src/*", "haxelib.json", "README.md", "LICENSE"]
         },
 
         yuidoc: {
