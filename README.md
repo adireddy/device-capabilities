@@ -3,7 +3,7 @@ Library to detect and use capabilities like Battery, DeviceMotion, Vibration, et
 
 ![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)
 
-[![Build Status](https://travis-ci.org/adireddy/device-capabilities.svg?branch=master)](https://travis-ci.org/adireddy/device-capabilities) [![npm version](https://badge.fury.io/js/device-capabilities.js.svg)](https://badge.fury.io/js/device-capabilities.js) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/adireddy/device-capabilities.svg?branch=master)](https://travis-ci.org/adireddy/device-capabilities) [![npm version](https://badge.fury.io/js/device-capabilities.js.svg)](https://badge.fury.io/js/device-capabilities.js)
 
 ### Installation
 
