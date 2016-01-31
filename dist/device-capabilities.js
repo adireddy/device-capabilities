@@ -1,4 +1,17 @@
 (function (console, $hx_exports) { "use strict";
+var BatterySupport = $hx_exports.BatterySupport = function(ready) {
+	var _g = this;
+	this._navigator = window.navigator;
+	this.battery = this._navigator.battery;
+	if(this.battery == null) this.battery = Reflect.field(this._navigator,"webkitBattery");
+	if(this.battery == null) this.battery = Reflect.field(this._navigator,"mozBattery");
+	this.isSupported = this.battery != null;
+	if(this.battery == null && Reflect.field(this._navigator,"getBattery") != null) window.navigator.getBattery().then(function(b) {
+		_g.battery = b;
+		_g.isSupported = true;
+		if(ready != null) ready();
+	}); else if(ready != null) ready();
+};
 var Motion = $hx_exports.Motion = function() {
 	this._window = window;
 };
@@ -49,6 +62,14 @@ Motion.prototype = {
 		this._y = null;
 		this._z = null;
 		this._time = null;
+	}
+};
+var Reflect = function() { };
+Reflect.field = function(o,field) {
+	try {
+		return o[field];
+	} catch( e ) {
+		return null;
 	}
 };
 var Vibration = $hx_exports.Vibration = function() {
