@@ -2,7 +2,7 @@
   "name": "device-capabilities.js",
   "version": "0.0.2",
   "description": "Device Capabilities Library",
-  "main": "./bin/device-capabilities.js",
+  "main": "./dist/device-capabilities.js",
   "scripts": {
     "test": "echo \"no test specified\" && exit 0"
   },
