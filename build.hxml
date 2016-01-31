@@ -7,7 +7,7 @@ Motion
 Vibration
 BatterySupport
 -dce std
--js dist/device-capabilities.js
+-js bin/device-capabilities.js
 -debug
 -D source-map-content
 
@@ -19,6 +19,6 @@ Vibration
 BatterySupport
 -lib closure
 -dce std
--js dist/device-capabilities.min.js
+-js bin/device-capabilities.min.js
 -D closure_overwrite
 --no-traces
