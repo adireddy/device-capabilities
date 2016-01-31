@@ -1,5 +1,13 @@
-# ![device-capabilitie logo](https://raw.githubusercontent.com/adireddy/device-capabilities/master/logo.png)
+# ![device-capabilities logo](https://raw.githubusercontent.com/adireddy/device-capabilities/master/logo.png)
 Library to detect and use capabilities like Battery, DeviceMotion, Vibration, Geolocation, etc.
+
+### Installation
+
+`npm install device-capabilities.js`
+
+### Demo
+
+- [JavaScript](http://adireddy.github.io/demos/device-capabilities/)
 
 ### Licensing Information
 
