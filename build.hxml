@@ -1,4 +1,5 @@
 -cmd haxelib newrepo
+-cmd haxelib install closure
 
 --next
 
