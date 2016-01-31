@@ -13,10 +13,30 @@ import js.Browser;
     var _interval:Int;
     var _callback:Void -> Void;
 
+    /**
+	* Class for shake(devicemotion) functionality.
+	*
+	* @class Motion
+	* @constructor
+	* @example
+	* 		var motion = new Motion();
+	* 		motion.shake(onShake);
+	* 		function onShake() {
+	* 	        trace("shake detected");
+	*       }
+	*/
     public function new() {
         _window = Browser.window;
     }
 
+    /**
+	* Function to detect shake motion.
+	*
+	* @method shake
+	* @param {Function} callback
+	* @param {Int} [threshold = 10]
+	* @param {Int} [interval = 1000]
+	*/
     public function shake(callback:Void -> Void, ?threshold:Int = 10, ?interval:Int = 1000) {
         _reset();
         _threshold = threshold;
@@ -26,6 +46,11 @@ import js.Browser;
         _window.addEventListener("devicemotion", _onDeviceMotion);
     }
 
+    /**
+	* Function to stop shake motion detection.
+	*
+	* @method stopShake
+	*/
     public function stopShake() {
         _window.removeEventListener("devicemotion", _onDeviceMotion);
         _callback = null;

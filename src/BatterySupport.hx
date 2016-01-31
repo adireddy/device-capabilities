@@ -4,11 +4,39 @@ import js.html.Navigator;
 
 @:expose @:keep class BatterySupport {
 
+    /**
+	* Support check.
+	*
+	* @property isSupported
+	* @type {Bool}
+	*/
     public var isSupported:Bool;
+
+    /**
+	* Battery manager instance.
+	*
+	* @property battery
+	* @type {BatteryManager}
+	*/
     public var battery:BatteryManager;
 
     var _navigator:Navigator;
 
+    /**
+	* Class to access battery manager.
+	*
+	* @class BatterySupport
+	* @constructor
+	* @example
+	* 		var batterySupport = new BatterySupport(onReady);
+	*
+	* 	    function onReady() {
+	* 	        trace(batterySupport.isSupported);
+	* 	        if (batterySupport.isSupported) {
+	* 	            trace(batterySupport.battery.level);
+	* 	        }
+	* 	    }
+	*/
     public function new(?ready:Void -> Void) {
         _navigator = Browser.navigator;
         battery = _navigator.battery;
