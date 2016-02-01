@@ -13,14 +13,15 @@
 	  "sensor",
 	  "motion",
 	  "battery",
-	  "location"
+	  "location",
+	  "geolocation"
 	],
 	"description": "Device Capabilities Library",
 	"contributors": [
 		"adireddy"
 	],
-	"releasenote": "initial release",
-	"version": "0.0.2",
+	"releasenote": "added Location class",
+	"version": "0.0.4",
 	"url": "https://github.com/adireddy/device-capabilities",
 	"dependencies": {}
 }
