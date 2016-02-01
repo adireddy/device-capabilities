@@ -1,4 +1,3 @@
-import js.html.SpeechInputResultList;
 import js.Browser;
 import js.html.SpeechRecognitionEvent;
 import js.html.SpeechGrammarList;
