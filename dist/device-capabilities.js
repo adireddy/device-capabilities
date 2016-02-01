@@ -10,7 +10,73 @@ var BatterySupport = $hx_exports.BatterySupport = function(ready) {
 		_g.battery = b;
 		_g.isSupported = true;
 		if(ready != null) ready();
-	}); else if(ready != null) ready();
+	}); else if(ready != null) haxe_Timer.delay(ready,1);
+};
+var Location = $hx_exports.Location = function(enableHighAccuracy,timeout,maximumAge) {
+	if(maximumAge == null) maximumAge = 0;
+	if(timeout == null) timeout = 5000;
+	if(enableHighAccuracy == null) enableHighAccuracy = false;
+	this.options = { enableHighAccuracy : enableHighAccuracy, timeout : timeout, maximumAge : maximumAge};
+	this._navigator = window.navigator;
+	this.isSupported = window != null && this._navigator.geolocation != null;
+};
+Location.prototype = {
+	getCurrentPosition: function(callback,errorCallback) {
+		var _g = this;
+		this._navigator.geolocation.getCurrentPosition(callback,function(error) {
+			if(errorCallback != null) switch(error.code) {
+			case 1:
+				errorCallback("User denied location request.");
+				break;
+			case 2:
+				errorCallback("Location information is unavailable.");
+				break;
+			case 3:
+				errorCallback("The request to get user location timed out.");
+				break;
+			default:
+				errorCallback("An unknown error occurred.");
+			}
+		},this.options);
+	}
+	,monitor: function(updateCallback,errorCallback) {
+		var _g = this;
+		if(this._monitorId != null) this._navigator.geolocation.clearWatch(this._monitorId);
+		this._monitorId = this._navigator.geolocation.watchPosition(updateCallback,function(error) {
+			if(errorCallback != null) switch(error.code) {
+			case 1:
+				errorCallback("User denied location request.");
+				break;
+			case 2:
+				errorCallback("Location information is unavailable.");
+				break;
+			case 3:
+				errorCallback("The request to get user location timed out.");
+				break;
+			default:
+				errorCallback("An unknown error occurred.");
+			}
+		},this.options);
+	}
+	,clearMonitor: function() {
+		if(this._monitorId != null) this._navigator.geolocation.clearWatch(this._monitorId);
+		this._monitorId = null;
+	}
+	,_error: function(code,errorCallback) {
+		switch(code) {
+		case 1:
+			errorCallback("User denied location request.");
+			break;
+		case 2:
+			errorCallback("Location information is unavailable.");
+			break;
+		case 3:
+			errorCallback("The request to get user location timed out.");
+			break;
+		default:
+			errorCallback("An unknown error occurred.");
+		}
+	}
 };
 var Motion = $hx_exports.Motion = function() {
 	this._window = window;
@@ -86,6 +152,29 @@ Vibration.prototype = {
 	}
 	,stop: function() {
 		if(this.isSupported) this._navigator.vibrate(0);
+	}
+};
+var haxe_Timer = function(time_ms) {
+	var me = this;
+	this.id = setInterval(function() {
+		me.run();
+	},time_ms);
+};
+haxe_Timer.delay = function(f,time_ms) {
+	var t = new haxe_Timer(time_ms);
+	t.run = function() {
+		t.stop();
+		f();
+	};
+	return t;
+};
+haxe_Timer.prototype = {
+	stop: function() {
+		if(this.id == null) return;
+		clearInterval(this.id);
+		this.id = null;
+	}
+	,run: function() {
 	}
 };
 var $_, $fid = 0;

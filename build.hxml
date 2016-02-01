@@ -7,6 +7,7 @@
 Motion
 Vibration
 BatterySupport
+Location
 -dce std
 -js dist/device-capabilities.js
 -debug
@@ -18,6 +19,7 @@ BatterySupport
 Motion
 Vibration
 BatterySupport
+Location
 -lib closure
 -dce std
 -js dist/device-capabilities.min.js
