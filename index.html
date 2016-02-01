@@ -12,23 +12,31 @@
 	<script src="//cdn.muicss.com/mui-0.2.9/js/mui.min.js"></script>
 
 	<script src="dist/device-capabilities.min.js"></script>
+    <!--<script src="http://jsconsole.com/remote.js?C8000C10-83FD-4484-864F-55F069C64C20"></script>-->
 
 	<script>
 		var batterySupport = new BatterySupport(onReady);
 		var vibration = new Vibration();
 		var motion = new Motion();
+        var loc = new Location();
 
 		function init() {
 			document.getElementById("ua").innerHTML = navigator.userAgent;
-			document.getElementById("ua").innerHTML += "<br/>Vibration Support: " + vibration.isSupported;
+			document.getElementById("supportInfo").innerHTML += "<br/>Vibration Support: " + vibration.isSupported;
+            document.getElementById("supportInfo").innerHTML += "<br/>Location Support: " + loc.isSupported;
 		}
 
 		function onReady() {
-			document.getElementById("ua").innerHTML += "<br/>Battery Support: " + batterySupport.isSupported;
-			document.getElementById("batteryInfo").innerHTML += "Charging: " + batterySupport.battery.charging;
-			document.getElementById("batteryInfo").innerHTML += "<br/>Charging Time: " + batterySupport.battery.chargingTime;
-			document.getElementById("batteryInfo").innerHTML += "<br/>Level: " + batterySupport.battery.level;
-			document.getElementById("batteryInfo").innerHTML += "<br/>Discharging Time: " + batterySupport.battery.dischargingTime;
+			document.getElementById("supportInfo").innerHTML += "<br/>Battery Support: " + batterySupport.isSupported;
+            if (batterySupport.isSupported) {
+                document.getElementById("batteryInfo").innerHTML += "Charging: " + batterySupport.battery.charging;
+                document.getElementById("batteryInfo").innerHTML += "<br/>Charging Time: " + batterySupport.battery.chargingTime;
+                document.getElementById("batteryInfo").innerHTML += "<br/>Level: " + batterySupport.battery.level;
+                document.getElementById("batteryInfo").innerHTML += "<br/>Discharging Time: " + batterySupport.battery.dischargingTime;
+            }
+            else {
+                document.getElementById("batteryInfo").innerHTML = "<br/>NOT SUPPORTED";
+            }
 		}
 
 		function shake(threshold) {
@@ -39,6 +47,29 @@
 		function onShake() {
 			document.getElementById("shakeStatus").innerText = "SHAKE DETECTED " + Math.round(Math.random() * 100);
 		}
+
+        function getLocation() {
+            loc.getCurrentPosition(onLocation, onLocationError);
+            document.getElementById("locationInfo").innerText = "waiting for location...";
+        }
+
+        function monitorLocation() {
+            loc.monitor(onLocation, onLocationError);
+            document.getElementById("locationInfo").innerText = "waiting for location..."
+        }
+
+        function clearLocation() {
+            loc.clearMonitor();
+            document.getElementById("locationInfo").innerText = "";
+        }
+
+        function onLocation(pos) {
+            document.getElementById("locationInfo").innerText = "LONGITUDE: " + pos.coords.longitude + " LATITUDE: " + pos.coords.latitude;
+        }
+
+        function onLocationError(msg) {
+            document.getElementById("locationInfo").innerText = msg;
+        }
 
 	</script>
 
@@ -60,8 +91,8 @@
 
 	<div class="mui--appbar-height"></div>
 	<br />
-	<br />
 	<div id="ua" class="mui--text-caption"></div>
+    <div id="supportInfo" class="mui--text-caption"></div>
 	<br />
 	<br />
 	<div id="vibration" class="mui--text-title">Vibration (Android only)</div>
@@ -77,11 +108,17 @@
 	<button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" id="shakeStatus">WAITING...   </button>
 	<br />
 	<br />
-	<div id="battery" class="mui--text-title">Battery Info</div>
-	<div id="batteryInfo" class="mui--text-caption"></div>
+    <div id="location" class="mui--text-title">Location Info</div>
+    <button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="getLocation();">Current Location</button>
+    <button class="mui-btn mui-btn--small mui-btn--raised mui-btn--primary" onclick="monitorLocation();">Monitor Location</button>
+    <button class="mui-btn mui-btn--small mui-btn--raised mui-btn--accent" onclick="clearLocation();">Clear</button>
+    <div id="locationInfo" class="mui--text-caption"></div>
 	<br />
-	<br />
-	<br />
+    <br />
+    <div id="battery" class="mui--text-title">Battery Info</div>
+    <div id="batteryInfo" class="mui--text-caption"></div>
+    <br />
+    <br />
 </div>
 
 <footer>
