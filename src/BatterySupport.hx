@@ -1,3 +1,4 @@
+import haxe.Timer;
 import js.Browser;
 import js.html.BatteryManager;
 import js.html.Navigator;
@@ -51,7 +52,7 @@ import js.html.Navigator;
             });
         }
         else {
-            if (ready != null) ready();
+            if (ready != null) Timer.delay(ready, 1);
         }
     }
 }

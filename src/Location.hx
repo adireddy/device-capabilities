@@ -31,7 +31,7 @@ import js.html.Navigator;
 	* @class Location
 	* @constructor
 	* @example
-	* 		var location = Location Location();
+	* 		var location = new Location();
 	*       location.getCurrentPosition(onLocation, onError);
 	*
 	*       function onLocation(position:Position) {
