@@ -1,6 +1,6 @@
 {
   "name": "device-capabilities.js",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Device Capabilities Library",
   "main": "./dist/device-capabilities.js",
   "scripts": {
@@ -24,7 +24,8 @@
     "sensor",
     "motion",
     "battery",
-    "location"
+    "location",
+    "geolocation"
   ],
   "author": {
     "name": "Adi Reddy Mora",
