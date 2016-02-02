@@ -154,7 +154,7 @@ Speech.prototype = {
 	addGrammar: function(grammar) {
 		this.grammarList.addFromString(grammar,1);
 	}
-	,startRecognition: function(callback,endCallback) {
+	,startRecognition: function(callback,endCallback,nomatch,error) {
 		var _g = this;
 		this.recognition.grammars = this.grammarList;
 		this.recognition.lang = Speech.language;
@@ -167,6 +167,12 @@ Speech.prototype = {
 		this.recognition.onspeechend = function() {
 			_g.recognition.stop();
 			if(endCallback != null) endCallback();
+		};
+		this.recognition.onnomatch = function(event1) {
+			if(nomatch != null) nomatch();
+		};
+		this.recognition.onerror = function(event2) {
+			if(error != null) error();
 		};
 	}
 };

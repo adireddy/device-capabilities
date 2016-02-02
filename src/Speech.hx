@@ -34,7 +34,7 @@ import js.html.SpeechRecognition;
         grammarList.addFromString(grammar, 1);
     }
 
-    public function startRecognition(callback:Dynamic -> Void, ?endCallback:Void -> Void) {
+    public function startRecognition(callback:Dynamic -> Void, ?endCallback:Void -> Void, ?nomatch:Void -> Void, error:Void -> Void) {
         recognition.grammars = grammarList;
         recognition.lang = language;
         recognition.interimResults = interimResults;
@@ -46,6 +46,12 @@ import js.html.SpeechRecognition;
         recognition.onspeechend = function() {
             recognition.stop();
             if (endCallback != null) endCallback();
+        };
+        recognition.onnomatch = function(event) {
+            if (nomatch != null) nomatch();
+        };
+        recognition.onerror = function(event) {
+            if (error != null) error();
         };
     }
 }

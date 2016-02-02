@@ -84,6 +84,10 @@
                 document.getElementById("speechInfo").innerText += "Confidence: " + Math.round(results[0][0].confidence * 100) + "%";
             }, function() {
                 document.getElementById("speechInfo").innerText = "";
+            }, function() {
+                document.getElementById("speechInfo").innerText = "no match";
+            }, function() {
+                document.getElementById("speechInfo").innerText = "error";
             });
             document.getElementById("speechInfo").innerText = "waiting...";
         }
