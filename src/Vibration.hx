@@ -14,7 +14,7 @@ import js.Browser;
 	var _navigator:Navigator;
 
 	/**
-	* Class to vibrate the device if supported.
+	* Class to vibrate the device.
 	*
 	* @class Vibration
 	* @constructor

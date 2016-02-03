@@ -20,6 +20,19 @@ import js.html.SpeechRecognition;
     public var recognition:SpeechRecognition;
     public var grammarList:SpeechGrammarList;
 
+    /**
+	* Class for speech recognition.
+	*
+	* @class Vibration
+	* @constructor
+	* @example
+	* 		var speech = new Speech();
+	* 		vibration.startRecognition(onResult);
+	*
+	*       function onResult(results) {
+	* 	        trace(results[0][0].transcript);
+	*       }
+	*/
     public function new() {
         if (Reflect.field(Browser.window, "SpeechRecognition") != null) recognition = Type.createInstance(Reflect.field(Browser.window, "SpeechRecognition"), []);
         else if (Reflect.field(Browser.window, "webkitSpeechRecognition") != null) recognition = Type.createInstance(Reflect.field(Browser.window, "webkitSpeechRecognition"), []);
@@ -30,11 +43,26 @@ import js.html.SpeechRecognition;
         isSupported = (recognition != null && grammarList != null);
     }
 
+    /**
+	* Function to add grammar string.
+	*
+	* @method addGrammar
+	* @param {String} grammar
+	*/
     public function addGrammar(grammar:String) {
         grammarList.addFromString(grammar, 1);
     }
 
-    public function startRecognition(callback:Dynamic -> Void, ?endCallback:Void -> Void, ?nomatch:Void -> Void, error:Void -> Void) {
+    /**
+	* Function to start speech recognition.
+	*
+	* @method startRecognition
+	* @param {Function} callback
+	* @param {Function} [endCallback]
+	* @param {Function} [noMatchCallback]
+	* @param {Function} [errorCallback]
+	*/
+    public function startRecognition(callback:Dynamic -> Void, ?endCallback:Void -> Void, ?noMatchCallback:Void -> Void, ?errorCallback:Void -> Void) {
         recognition.grammars = grammarList;
         recognition.lang = language;
         recognition.interimResults = interimResults;
@@ -48,10 +76,10 @@ import js.html.SpeechRecognition;
             if (endCallback != null) endCallback();
         };
         recognition.onnomatch = function(event) {
-            if (nomatch != null) nomatch();
+            if (noMatchCallback != null) noMatchCallback();
         };
         recognition.onerror = function(event) {
-            if (error != null) error();
+            if (errorCallback != null) errorCallback();
         };
     }
 }
