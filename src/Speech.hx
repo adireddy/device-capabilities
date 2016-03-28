@@ -5,9 +5,9 @@ import js.html.SpeechRecognition;
 
 @:expose @:keep class Speech {
 
-    public static var language:String = "en-GB";
-    public static var maxAlternatives:Int = 1;
-    public static var interimResults:Bool = false;
+    public static var LANGUAGE:String = "en-GB";
+    public static var MAX_ALTERNATIVES:Int = 1;
+    public static var INTERIM_RESULTS:Bool = false;
 
     /**
 	* Support check.
@@ -34,11 +34,19 @@ import js.html.SpeechRecognition;
 	*       }
 	*/
     public function new() {
-        if (Reflect.field(Browser.window, "SpeechRecognition") != null) recognition = Type.createInstance(Reflect.field(Browser.window, "SpeechRecognition"), []);
-        else if (Reflect.field(Browser.window, "webkitSpeechRecognition") != null) recognition = Type.createInstance(Reflect.field(Browser.window, "webkitSpeechRecognition"), []);
+        if (Reflect.field(Browser.window, "SpeechRecognition") != null) {
+            recognition = Type.createInstance(Reflect.field(Browser.window, "SpeechRecognition"), []);
+        }
+        else if (Reflect.field(Browser.window, "webkitSpeechRecognition") != null) {
+            recognition = Type.createInstance(Reflect.field(Browser.window, "webkitSpeechRecognition"), []);
+        }
 
-        if (Reflect.field(Browser.window, "SpeechGrammarList") != null) grammarList = Type.createInstance(Reflect.field(Browser.window, "SpeechGrammarList"), []);
-        else if (Reflect.field(Browser.window, "webkitSpeechGrammarList") != null) grammarList = Type.createInstance(Reflect.field(Browser.window, "webkitSpeechGrammarList"), []);
+        if (Reflect.field(Browser.window, "SpeechGrammarList") != null) {
+            grammarList = Type.createInstance(Reflect.field(Browser.window, "SpeechGrammarList"), []);
+        }
+        else if (Reflect.field(Browser.window, "webkitSpeechGrammarList") != null) {
+            grammarList = Type.createInstance(Reflect.field(Browser.window, "webkitSpeechGrammarList"), []);
+        }
 
         isSupported = (recognition != null && grammarList != null);
     }
@@ -64,9 +72,9 @@ import js.html.SpeechRecognition;
 	*/
     public function startRecognition(callback:Dynamic -> Void, ?endCallback:Void -> Void, ?noMatchCallback:Void -> Void, ?errorCallback:Void -> Void) {
         recognition.grammars = grammarList;
-        recognition.lang = language;
-        recognition.interimResults = interimResults;
-        recognition.maxAlternatives = maxAlternatives;
+        recognition.lang = LANGUAGE;
+        recognition.interimResults = INTERIM_RESULTS;
+        recognition.maxAlternatives = MAX_ALTERNATIVES;
         recognition.start();
         recognition.onresult = function(event:SpeechRecognitionEvent) {
             callback(event.results);

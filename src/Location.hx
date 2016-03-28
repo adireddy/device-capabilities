@@ -58,7 +58,8 @@ import js.html.Navigator;
 	public function getCurrentPosition(callback:Position -> Void, ?errorCallback:String -> Void) {
 		_navigator.geolocation.getCurrentPosition(callback, function(error:PositionError) {
 			if (errorCallback != null) _error(error.code, errorCallback);
-		}, options);
+		},
+		options);
 	}
 
 	/**
@@ -72,7 +73,8 @@ import js.html.Navigator;
 		if (_monitorId != null) _navigator.geolocation.clearWatch(_monitorId);
 		_monitorId = _navigator.geolocation.watchPosition(updateCallback, function(error:PositionError) {
 			if (errorCallback != null) _error(error.code, errorCallback);
-		}, options);
+		},
+		options);
 	}
 
 	/**
@@ -86,7 +88,7 @@ import js.html.Navigator;
 	}
 
 	inline function _error(code:Int, errorCallback:String -> Void) {
-		switch(code) {
+		switch (code) {
 			case PositionError.PERMISSION_DENIED: errorCallback("User denied location request.");
 			case PositionError.POSITION_UNAVAILABLE: errorCallback("Location information is unavailable.");
 			case PositionError.TIMEOUT: errorCallback("The request to get user location timed out.");
