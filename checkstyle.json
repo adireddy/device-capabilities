@@ -452,14 +452,6 @@
       "type": "Spacing"
     },
     {
-      "props": {
-        "policy": "doubleAndInterpolation",
-        "allowException": true,
-        "severity": "INFO"
-      },
-      "type": "StringLiteral"
-    },
-    {
       "type": "Trace"
     },
     {
