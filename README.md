@@ -5,8 +5,8 @@ Library to detect and use capabilities like Battery, DeviceMotion, Vibration, et
 
 [![Build Status](https://travis-ci.org/adireddy/device-capabilities.svg?branch=master)](https://travis-ci.org/adireddy/device-capabilities)
 [![npm version](https://badge.fury.io/js/device-capabilities.js.svg)](https://badge.fury.io/js/device-capabilities.js)
-[![Code Climate](https://codeclimate.com/github/adireddy/waud/badges/gpa.svg)](https://codeclimate.com/github/adireddy/evice-capabilities)
-[![Code Climate Issues](https://img.shields.io/codeclimate/issues/github/adireddy/waud.svg)](https://codeclimate.com/github/adireddy/evice-capabilities/issues)
+[![Code Climate](https://codeclimate.com/github/adireddy/waud/badges/gpa.svg)](https://codeclimate.com/github/adireddy/device-capabilities)
+[![Code Climate Issues](https://img.shields.io/codeclimate/issues/github/adireddy/waud.svg)](https://codeclimate.com/github/adireddy/device-capabilities/issues)
 
 ### Installation
 
