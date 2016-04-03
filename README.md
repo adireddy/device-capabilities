@@ -64,4 +64,4 @@ Icon by [Icons8](https://icons8.com)
 
 ### Contributor Code of Conduct ###
 
-[Code of Conduct](https://github.com/CoralineAda/contributor_covenant) is adapted from [Contributor Covenant, version 1.4.0](http://contributor-covenant.org/version/1/4/0/)
+[Code of Conduct](https://github.com/CoralineAda/contributor_covenant) is adapted from [Contributor Covenant, version 1.4.0](http://contributor-covenant.org/version/1/4/)
