@@ -3,7 +3,10 @@ Library to detect and use capabilities like Battery, DeviceMotion, Vibration, et
 
 ![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)
 
-[![Build Status](https://travis-ci.org/adireddy/device-capabilities.svg?branch=master)](https://travis-ci.org/adireddy/device-capabilities) [![npm version](https://badge.fury.io/js/device-capabilities.js.svg)](https://badge.fury.io/js/device-capabilities.js)
+[![Build Status](https://travis-ci.org/adireddy/device-capabilities.svg?branch=master)](https://travis-ci.org/adireddy/device-capabilities)
+[![npm version](https://badge.fury.io/js/device-capabilities.js.svg)](https://badge.fury.io/js/device-capabilities.js)
+[![Code Climate](https://codeclimate.com/github/adireddy/waud/badges/gpa.svg)](https://codeclimate.com/github/adireddy/evice-capabilities)
+[![Code Climate Issues](https://img.shields.io/codeclimate/issues/github/adireddy/waud.svg)](https://codeclimate.com/github/adireddy/evice-capabilities/issues)
 
 ### Installation
 
@@ -61,4 +64,4 @@ Icon by [Icons8](https://icons8.com)
 
 ### Contributor Code of Conduct ###
 
-[Code of Conduct](https://github.com/CoralineAda/contributor_covenant) is adapted from [Contributor Covenant, version 1.3.0](http://contributor-covenant.org/version/1/3/0/)
+[Code of Conduct](https://github.com/CoralineAda/contributor_covenant) is adapted from [Contributor Covenant, version 1.4.0](http://contributor-covenant.org/version/1/4/0/)
